@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Firestore Document Size Test</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <style>
+    html * {
+      font-size: 16px;
+    }
+  </style>
+  <script data-main="scripts/main" src="https://requirejs.org/docs/release/2.3.6/minified/require.js"></script>
+</head>
+<body>
+  <p>
+    Key Path: <input id="key1" placeholder="Input document key" value="my-collection/japanese-text" size="40" 
+      onblur="main.getFirestoreData(this.value)" />
+  </p>
+  <p>
+    <div>Koshien data: </div>
+    <textarea placeholder="Input JSON data" rows="10" cols="50" onblur="main.printSize(0, 'key1')"></textarea>
+    <div><label>Invalid JSON</label></div>
+  </p>
+  <button onclick="main.setInFirestore(0, 'key1')">Set in Firestore</button>
+
+  <p style="margin-top: 4em;"></p>
+    Key Path: <input id="key2" placeholder="Input document key" value="my-collection/english-text" size="40" 
+      onblur="main.getFirestoreData(this.value)" />
+  </p>
+  <p>
+    <div>Sample data: </div>
+    <textarea placeholder="Input JSON data" rows="10" cols="50" onblur="main.printSize(1, 'key2')"></textarea>
+    <div><label>Invalid JSON</label></div>
+  </p>
+  <button onclick="main.setInFirestore(1, 'key2')">Set in Firestore</button>
+</body>
+</html>
